@@ -1,0 +1,56 @@
+@import url(common.css);
+
+.main {
+    display: flex;
+    flex-direction: column;
+}
+
+.breadcrumb {
+    display: flex;
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+}
+
+.post {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+}
+
+.meta {
+    display: flex;
+    font-size: 12px;
+    justify-content: space-between;
+}
+
+.tag {
+    color: goldenrod;
+}
+
+.social {
+    display: flex;
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: #fffff4;
+}
+
+@media (min-width: 901px) {
+    .content {
+        flex-direction: row;
+    }
+
+    .post {
+        width: 75%;
+    }
+    
+    .sidebar {
+        width: 25%;
+    }
+}
