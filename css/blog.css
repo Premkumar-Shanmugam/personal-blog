@@ -1,22 +1,22 @@
 @import url(common.css);
 
 .main {
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-areas: 
+    "bc"
+    "po"
+    "sd";
 }
 
 .breadcrumb {
     display: flex;
-}
-
-.content {
-    display: flex;
-    flex-direction: column;
+    grid-area: bc;
 }
 
 .post {
     display: flex;
     flex-direction: column;
+    grid-area: po;
     width: 100%;
 }
 
@@ -37,20 +37,17 @@
 .sidebar {
     display: flex;
     flex-direction: column;
+    grid-area: sd;
     width: 100%;
     background: #fffff4;
 }
 
 @media (min-width: 901px) {
-    .content {
-        flex-direction: row;
-    }
-
-    .post {
-        width: 75%;
-    }
-    
-    .sidebar {
-        width: 25%;
+    .main {
+        display: grid;
+        grid-template-columns: repeat(4,1fr);
+        grid-template-areas: 
+        "bc bc bc bc"
+        "po po po sd";
     }
 }
