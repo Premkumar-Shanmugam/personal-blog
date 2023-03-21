@@ -3,16 +3,11 @@
 }
 
 .container{
-      display:grid;
-      grid-template-columns: repeat(8, 1fr);
-      grid-template-rows: 60px;
-      /* grid-template-rows: 50px 600px 40px; */
-      /* grid-gap: 5px; */
+      display: grid;
       grid-template-areas: 
-      "hd hd hd hd hd hd hd hd"
-      "sd mn mn mn mn mn mn mn"
-      "ft ft ft ft ft ft ft ft";
-      /* border: 2px solid yellow; */
+      "hd"
+      "mn"
+      "ft";
       border-radius: 5px;
       background: #fffff8;
       color: #444;
@@ -21,50 +16,49 @@
 .box{
     /* border: 1px solid red; */
     padding: 5px;
-    /* border-radius: 5px; */
 }
 
 .header {
-    display:flex;
-    grid-area:hd;
+    display: flex;
+    grid-area: hd;
     font-size: 36px;
     justify-content: center;
     align-items: center;
     background: #444;
     color: #fffff8;
+    height: 60px;
     border-top-right-radius: 5px;
     border-top-left-radius: 5px;
 }
 
 .sidebar {
-    display:flex;
+    display: none;
     flex-direction: column;
     grid-area:sd;
     background: #fffff4;
+    width: 200px;
 }
 
 .main {
-    display:flex;
-    flex-flow: row wrap;
+    display: flex;
+    flex-direction: column-reverse;
     grid-area:mn;
 }
 
 .features {
     display: flex;
     flex-flow: row wrap;
-    max-width: 850px;
-    align-self: flex-start;
-    justify-content: space-evenly;
-    
+    justify-content: stretch;
 }
 
 .feature {
     display: flex;
+    flex: 1 1 auto;
     justify-content: center;
     align-items: center;
     font-size: 24px;
     font-weight: bolder;
-    width: 250px;
+    width: 200px;
     height: 180px;
     border-radius: 5px;
     margin: 5px;
@@ -81,22 +75,31 @@
 .me {
     display: flex;
     flex-direction: column;
+    align-items: center;
     min-width: 250px;
 }
 
 .myPic {
     background-image: url(https://avatars.githubusercontent.com/u/28890016?s=400&u=ebf9e083d3bfe95e271ae4fd78b1896814727c70&v=4);
     background-repeat: no-repeat;
+    width: 250px; 
     height: 250px;
+    border-radius: 50%;
+}
+
+.myName {
+    font-size: 20px;
+    color: goldenrod;
 }
 
 .myName, .myRole {
     font-weight: bold;
     line-height: 1.5em;
+    text-align: center;
 }
 
 .footer {
-    display:flex;
+    display: flex;
     justify-content: center;
     align-items: center;
     height: 30px;
@@ -106,4 +109,27 @@
     color: #fffff8;
     border-bottom-right-radius: 5px;
     border-bottom-left-radius: 5px;
+}
+
+@media (min-width: 601px) and (max-width: 1100px) {
+    .main {
+        flex-flow: row nowrap;
+    }
+}
+
+@media (min-width: 1101px) {
+    .container{
+        grid-template-areas: 
+        "hd hd"
+        "sd mn"
+        "ft ft";
+    }
+
+    .sidebar {
+        display: flex;
+    }
+
+    .main {
+        flex-flow: row nowrap;
+    }
 }
